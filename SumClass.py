@@ -1,3 +1,8 @@
+"""
+author: Daniel C. Tompkins tompkinsguitar [at] gmail [dot] com
+Produces sum-class tables from Joseph N. Straus (forthcoming)
+"""
+
 import itertools as it
 import csv
 
