@@ -1,3 +1,9 @@
+"""
+author: Daniel C. Tompkins tompkinsguitar [at] gmail [dot] com
+Returns interval-class vectors and pitch-class sets given a list of pitch integers
+code made for a doctoral seminar by Clifton Callender: https://github.com/cliftoncallender
+"""
+
 def icv(list_of_pitches):
     """Returns the interval class vectors of pitch set"""
     pitch_classes = set(x % 12 for x in list_of_pitches)
