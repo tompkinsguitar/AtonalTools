@@ -7,17 +7,24 @@ code made for a doctoral seminar by Clifton Callender: https://github.com/clifto
 def icv(list_of_pitches):
     """Returns the interval class vectors of pitch set"""
     pitch_classes = set(x % 12 for x in list_of_pitches)
+    pitch_classes = list(pitch_classes)
     icv_dict = {x: 0 for x in range(1, 7)}
-    for x in pitch_classes:
-        for y in pitch_classes:
-            ic = abs(x - y) % 6
-            if ic in icv_dict.keys():
-                icv_dict[ic] += 1
+    for i in range(len(pitch_classes)-1):
+        for j in range(i+1, len(pitch_classes)):
+            x = pitch_classes[i]
+            y = pitch_classes[j]
+            # print(x, y)
+            ic = min((abs(y - x), 12-abs(x - y))) #% 6
+            # print(ic)
+#             if ic in icv_dict.keys():
+            if ic == 0:
+                ic = 6
+            icv_dict[ic] += 1
+    # print(icv_dict)
     final_icv = []
-    for x in range(6):
-        for y, z in icv_dict.items():
-            if y == x:
-                final_icv.append(int(z / 2))
+    for x in range(1, 7):
+        z = icv_dict[x]
+        final_icv.append(z)
     return final_icv
 
 
